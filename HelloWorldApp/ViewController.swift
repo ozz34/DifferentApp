@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         buttonConfiguration.baseBackgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         buttonConfiguration.cornerStyle = .medium
         buttonConfiguration.title = title
-        buttonConfiguration.buttonSize = .large
+        buttonConfiguration.buttonSize = .medium
         buttonConfiguration.attributedTitle?.font = .systemFont(ofSize: 25)
         
         return buttonConfiguration
