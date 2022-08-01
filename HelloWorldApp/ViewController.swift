@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var controlColorButton: UIButton!
     
-    var countPressButton = 0
+    private var countPressButton = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +49,10 @@ class ViewController: UIViewController {
             redTrafficView.alpha = 0.5
             yellowTrafficView.alpha = 1
             countPressButton += 1
-        case 2:
+       default:
             yellowTrafficView.alpha = 0.5
             greenTrafficView.alpha = 1
             countPressButton = 0
-        default: break    // никогда не сработает
         }
     }
     
