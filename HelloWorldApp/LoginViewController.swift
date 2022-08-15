@@ -15,7 +15,7 @@ final class LoginViewController: UIViewController {
     
     //MARK: Private properties
     private let login = "Jack"
-    private let password = "123321f"
+    private let password = "123321"
     
     //MARK: Override function
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -23,16 +23,6 @@ final class LoginViewController: UIViewController {
         
         view.endEditing(true)
     }
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "button" && userNameTF.text == login && passwordTF.text == String(password) {
-//            return true
-//        } else {
-//            doAlert(title: "Invalid login or password",
-//                    message: "Please, enter correct login and password")
-//            return false
-//        }
-//    }                       переход с идентификатором и условием
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
@@ -53,7 +43,7 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotNameButtonPressed() {
-        doAlert(title: "Oops!",message: "Your name is \(login) 😉")
+        doAlert(title: "Oops!",message: "Your name is \(login)😉")
     }
     
     @IBAction func forgotPasswordButtonPressed() {

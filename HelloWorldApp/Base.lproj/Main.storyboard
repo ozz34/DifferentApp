@@ -67,14 +67,6 @@
                                     <constraint firstItem="m0d-3v-iA8" firstAttribute="width" secondItem="JmV-5w-vwh" secondAttribute="width" multiplier="0.918182" id="jH6-OA-kd5"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LR-7f-9H0">
-                                <rect key="frame" x="126.5" y="73" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="hL2-MN-yeU" kind="presentation" identifier="button" modalPresentationStyle="fullScreen" id="to9-8p-MBP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,10 +76,8 @@
                             <constraint firstItem="vyh-wm-B19" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="148" id="MOM-8X-ObW"/>
                             <constraint firstItem="vyh-wm-B19" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Tv0-dW-N1E"/>
                             <constraint firstItem="Urt-ro-duo" firstAttribute="top" secondItem="2iS-yC-QdU" secondAttribute="bottom" constant="8" symbolic="YES" id="dQt-Vq-no7"/>
-                            <constraint firstItem="7LR-7f-9H0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="ddY-pd-CT8"/>
                             <constraint firstItem="Urt-ro-duo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="dou-j0-1Us"/>
                             <constraint firstItem="2iS-yC-QdU" firstAttribute="top" secondItem="vyh-wm-B19" secondAttribute="bottom" constant="37" id="f4G-aZ-vhg"/>
-                            <constraint firstItem="7LR-7f-9H0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kMw-xa-giD"/>
                             <constraint firstItem="2iS-yC-QdU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="noU-Qh-ltM"/>
                         </constraints>
                     </view>
@@ -171,9 +161,6 @@
             <point key="canvasLocation" x="-2079.375" y="48.591549295774648"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="to9-8p-MBP"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
