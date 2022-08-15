@@ -67,6 +67,14 @@
                                     <constraint firstItem="m0d-3v-iA8" firstAttribute="width" secondItem="JmV-5w-vwh" secondAttribute="width" multiplier="0.918182" id="jH6-OA-kd5"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LR-7f-9H0">
+                                <rect key="frame" x="126.5" y="73" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="hL2-MN-yeU" kind="presentation" identifier="button" modalPresentationStyle="fullScreen" id="to9-8p-MBP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,8 +84,10 @@
                             <constraint firstItem="vyh-wm-B19" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="148" id="MOM-8X-ObW"/>
                             <constraint firstItem="vyh-wm-B19" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Tv0-dW-N1E"/>
                             <constraint firstItem="Urt-ro-duo" firstAttribute="top" secondItem="2iS-yC-QdU" secondAttribute="bottom" constant="8" symbolic="YES" id="dQt-Vq-no7"/>
+                            <constraint firstItem="7LR-7f-9H0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="ddY-pd-CT8"/>
                             <constraint firstItem="Urt-ro-duo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="dou-j0-1Us"/>
                             <constraint firstItem="2iS-yC-QdU" firstAttribute="top" secondItem="vyh-wm-B19" secondAttribute="bottom" constant="37" id="f4G-aZ-vhg"/>
+                            <constraint firstItem="7LR-7f-9H0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kMw-xa-giD"/>
                             <constraint firstItem="2iS-yC-QdU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="noU-Qh-ltM"/>
                         </constraints>
                     </view>
@@ -98,6 +108,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04K-34-K8G" customClass="GradientView" customModule="HelloWorldApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.73333334920000004" green="0.51372551919999998" blue="0.58431375029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.54509806630000002" green="0.59607845540000004" blue="0.82745099070000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTO-Yr-Uyx">
                                 <rect key="frame" x="16" y="137" width="288" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -112,7 +133,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutButtonPressed" destination="hL2-MN-yeU" eventType="touchUpInside" id="QgU-ZQ-GkG"/>
                                     <segue destination="NM9-Rv-g8e" kind="unwind" unwindAction="unwindSegue:" id="DkA-SO-nKF"/>
                                 </connections>
                             </button>
@@ -124,17 +144,21 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iYB-97-1it"/>
-                        <color key="backgroundColor" red="0.75492849880638291" green="0.53837990770851607" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.54509806630000002" green="0.59607845540000004" blue="0.82745099070000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="fA3-7V-cFk" firstAttribute="top" secondItem="RTO-Yr-Uyx" secondAttribute="bottom" constant="19" id="1tk-IW-Vsl"/>
+                            <constraint firstItem="04K-34-K8G" firstAttribute="trailing" secondItem="iYB-97-1it" secondAttribute="trailing" id="3Ly-1d-bI2"/>
                             <constraint firstItem="iYB-97-1it" firstAttribute="trailing" secondItem="HtK-Aw-u4e" secondAttribute="trailing" constant="16" id="3ch-NW-wcG"/>
                             <constraint firstItem="fA3-7V-cFk" firstAttribute="leading" secondItem="iYB-97-1it" secondAttribute="leading" constant="16" id="CAL-9v-Y0y"/>
+                            <constraint firstItem="04K-34-K8G" firstAttribute="top" secondItem="Tg4-gM-PmZ" secondAttribute="top" id="EA8-Qb-Qmn"/>
                             <constraint firstItem="iYB-97-1it" firstAttribute="trailing" secondItem="fA3-7V-cFk" secondAttribute="trailing" constant="16" id="NbJ-iq-iYH"/>
                             <constraint firstItem="HtK-Aw-u4e" firstAttribute="leading" secondItem="iYB-97-1it" secondAttribute="leading" constant="16" id="SEB-ez-EGg"/>
                             <constraint firstItem="iYB-97-1it" firstAttribute="bottom" secondItem="HtK-Aw-u4e" secondAttribute="bottom" constant="119" id="VQ7-nR-MGQ"/>
                             <constraint firstItem="iYB-97-1it" firstAttribute="trailing" secondItem="RTO-Yr-Uyx" secondAttribute="trailing" constant="16" id="VZx-rd-ama"/>
                             <constraint firstItem="RTO-Yr-Uyx" firstAttribute="top" secondItem="iYB-97-1it" secondAttribute="top" constant="137" id="Xza-4J-IM3"/>
                             <constraint firstItem="RTO-Yr-Uyx" firstAttribute="leading" secondItem="iYB-97-1it" secondAttribute="leading" constant="16" id="Y8m-vG-rSJ"/>
+                            <constraint firstItem="04K-34-K8G" firstAttribute="leading" secondItem="iYB-97-1it" secondAttribute="leading" id="fDi-5o-Ysp"/>
+                            <constraint firstItem="04K-34-K8G" firstAttribute="bottom" secondItem="iYB-97-1it" secondAttribute="bottom" id="fUb-Rg-ojA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -144,9 +168,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oR2-QS-MS3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NM9-Rv-g8e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2079" y="49"/>
+            <point key="canvasLocation" x="-2079.375" y="48.591549295774648"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="to9-8p-MBP"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
