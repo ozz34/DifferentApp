@@ -193,7 +193,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="More info"/>
                                 <connections>
-                                    <segue destination="LDW-5s-ZyW" kind="show" id="lHD-33-ef8"/>
+                                    <segue destination="LDW-5s-ZyW" kind="show" identifier="descriptionPerson" id="lHD-33-ef8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -218,18 +218,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="BwD-gc-rjT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="BwD-gc-rjT">
                                 <rect key="frame" x="77" y="283" width="166" height="166"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-Gm-cTv">
-                                <rect key="frame" x="16" y="84" width="288" height="162.5"/>
-                                <string key="text">Мой хороший друг - тех.дир - программист меня убедил пойти в программирование, теперь и я учусь, решил сменить профессию. Из хобби - зал полупрофессионально в отдельных направлениях и рыбалка, т.к. живу на Волге и рядом Астрахань;)</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-Gm-cTv">
+                                <rect key="frame" x="16" y="84" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет! Меня зовут Иван." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB8-TV-L1r">
-                                <rect key="frame" x="57" y="44" width="207" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sB8-TV-L1r">
+                                <rect key="frame" x="16" y="44" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -246,12 +245,15 @@
                             <constraint firstItem="BwD-gc-rjT" firstAttribute="width" secondItem="rHk-7p-Ji9" secondAttribute="width" multiplier="0.51875" id="XlF-gN-ryp"/>
                             <constraint firstAttribute="trailing" secondItem="GMb-Gm-cTv" secondAttribute="trailing" constant="16" id="Xro-D1-VMr"/>
                             <constraint firstItem="BwD-gc-rjT" firstAttribute="height" secondItem="rHk-7p-Ji9" secondAttribute="height" multiplier="0.292254" id="ZoS-TF-9Sl"/>
-                            <constraint firstItem="sB8-TV-L1r" firstAttribute="leading" secondItem="A5U-Q4-xp3" secondAttribute="leading" constant="57" id="b7D-eN-WBJ"/>
-                            <constraint firstItem="A5U-Q4-xp3" firstAttribute="trailing" secondItem="sB8-TV-L1r" secondAttribute="trailing" constant="56" id="eVq-bY-U8p"/>
-                            <constraint firstItem="GMb-Gm-cTv" firstAttribute="top" secondItem="sB8-TV-L1r" secondAttribute="bottom" constant="19" id="n7i-Wf-b6b"/>
+                            <constraint firstItem="A5U-Q4-xp3" firstAttribute="trailing" secondItem="sB8-TV-L1r" secondAttribute="trailing" constant="16" id="Zs6-nf-ZAY"/>
+                            <constraint firstItem="sB8-TV-L1r" firstAttribute="leading" secondItem="A5U-Q4-xp3" secondAttribute="leading" constant="16" id="wdM-6F-FnC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jwq-at-3h5"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="GMb-Gm-cTv" id="uD0-T3-4Mz"/>
+                        <outlet property="nameLabel" destination="sB8-TV-L1r" id="zZE-K8-AfW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rey-fh-a5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
