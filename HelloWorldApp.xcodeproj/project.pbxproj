@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		871C3FEB28AA5DFE00080E3B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C3FEA28AA5DFE00080E3B /* GradientView.swift */; };
 		875F61B428A6DDBC00EF1754 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F61B328A6DDBC00EF1754 /* WelcomeViewController.swift */; };
+		87ECBCD328ABCCA30082B7C1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ECBCD228ABCCA30082B7C1 /* InfoViewController.swift */; };
+		87ECBCD528ABE1780082B7C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ECBCD428ABE1780082B7C1 /* User.swift */; };
 		87F1888A288F0BB100F06180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F18889288F0BB100F06180 /* AppDelegate.swift */; };
 		87F1888C288F0BB100F06180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F1888B288F0BB100F06180 /* SceneDelegate.swift */; };
 		87F1888E288F0BB100F06180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F1888D288F0BB100F06180 /* LoginViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		871C3FEA28AA5DFE00080E3B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		875F61B328A6DDBC00EF1754 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		87ECBCD228ABCCA30082B7C1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		87ECBCD428ABE1780082B7C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87F18886288F0BB100F06180 /* HelloWorldApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorldApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F18889288F0BB100F06180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87F1888B288F0BB100F06180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87ECBCCA28ABBE240082B7C1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87F1888D288F0BB100F06180 /* LoginViewController.swift */,
+				875F61B328A6DDBC00EF1754 /* WelcomeViewController.swift */,
+				87ECBCD228ABCCA30082B7C1 /* InfoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		87ECBCCB28ABBE810082B7C1 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				87F18889288F0BB100F06180 /* AppDelegate.swift */,
+				87F1888B288F0BB100F06180 /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		87ECBCCC28ABBE9B0082B7C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87ECBCD428ABE1780082B7C1 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87ECBCCD28ABBEAB0082B7C1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				87F1888F288F0BB100F06180 /* Main.storyboard */,
+				87F18894288F0BB200F06180 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		87F1887D288F0BB100F06180 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +100,12 @@
 		87F18888288F0BB100F06180 /* HelloWorldApp */ = {
 			isa = PBXGroup;
 			children = (
-				87F18889288F0BB100F06180 /* AppDelegate.swift */,
-				87F1888B288F0BB100F06180 /* SceneDelegate.swift */,
-				87F1888F288F0BB100F06180 /* Main.storyboard */,
-				87F1888D288F0BB100F06180 /* LoginViewController.swift */,
-				875F61B328A6DDBC00EF1754 /* WelcomeViewController.swift */,
+				87ECBCCC28ABBE9B0082B7C1 /* Models */,
+				87ECBCCA28ABBE240082B7C1 /* ViewControllers */,
+				87ECBCCB28ABBE810082B7C1 /* SupportFiles */,
+				87ECBCCD28ABBEAB0082B7C1 /* Storyboards */,
 				871C3FEA28AA5DFE00080E3B /* GradientView.swift */,
 				87F18892288F0BB200F06180 /* Assets.xcassets */,
-				87F18894288F0BB200F06180 /* LaunchScreen.storyboard */,
 				87F18897288F0BB200F06180 /* Info.plist */,
 			);
 			path = HelloWorldApp;
@@ -147,8 +185,10 @@
 				875F61B428A6DDBC00EF1754 /* WelcomeViewController.swift in Sources */,
 				87F1888E288F0BB100F06180 /* LoginViewController.swift in Sources */,
 				871C3FEB28AA5DFE00080E3B /* GradientView.swift in Sources */,
+				87ECBCD328ABCCA30082B7C1 /* InfoViewController.swift in Sources */,
 				87F1888A288F0BB100F06180 /* AppDelegate.swift in Sources */,
 				87F1888C288F0BB100F06180 /* SceneDelegate.swift in Sources */,
+				87ECBCD528ABE1780082B7C1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

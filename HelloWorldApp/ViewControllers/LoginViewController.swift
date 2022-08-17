@@ -14,8 +14,9 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTF: UITextField!
     
     //MARK: Private properties
-    private let login = "Jack"
-    private let password = "123321"
+    private let login = "a"
+    private let password = "a"
+    
     
     //MARK: Override function
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,12 +26,21 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-
-        if let userName = userNameTF.text {
-            welcomeVC.userName = userName
+        
+        guard let tabBar = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBar.viewControllers else { return }
+        guard let userName = userNameTF.text else { return }
+        
+        for viewController in viewControllers {
+            
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userName = userName
+            } else if let navigationVC = viewController as? UINavigationController {
+                navigationVC.topViewController?.title = userNameTF.text
+            }
         }
     }
+
     
     //MARK: @IBActions
     @IBAction func logInButtonPressed() {
