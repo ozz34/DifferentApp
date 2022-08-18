@@ -11,7 +11,8 @@ class InfoViewController: UIViewController {
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-   
+    @IBOutlet var picture: UIImageView!
+    
     var user: User!
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class InfoViewController: UIViewController {
         
         nameLabel.text = "Привет! Меня зовут \(user.person.name)."
         descriptionLabel.text = user.person.definition
+        picture.image = UIImage(named: user.person.picture) 
     }
 }
 
