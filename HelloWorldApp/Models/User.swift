@@ -14,21 +14,11 @@ struct User {
     let person: Person
     
     static func getUser() -> User {
-        return User(
-            login: "ozz",
-            password: "123123",
-            person: Person(
-                name: "Иван",
-                definition: """
-                            Мой хороший друг - тех.дир - программист убедил меня
-                            пойти в программирование, теперь и я учусь, решил сменить
-                            профессию. Из хобби - зал полупрофессионально в отдельных
-                            направлениях и рыбалка, т.к. живу на Волге и рядом
-                            Астрахань;)
-                            """,
-                picture: "flowers"
+        User(
+            login: "1",
+            password: "1",
+            person: Person.getPerson()
             )
-        )
     }
 }
 
@@ -36,6 +26,20 @@ struct Person {
     let name: String
     let definition: String
     let picture: String
+    
+    static func getPerson() -> Person {
+        Person(
+            name: "Иван",
+            definition: """
+                        Мой хороший друг - тех.дир - программист убедил меня
+                        пойти в программирование, теперь и я учусь, решил сменить
+                        профессию. Из хобби - зал полупрофессионально в отдельных
+                        направлениях и рыбалка, т.к. живу на Волге и рядом
+                        Астрахань;)
+                        """,
+            picture: "flowers"
+        )
+    }
 }
 
 
