@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol SettingsViewControllerDelegate {
     func setupBackground(for color: UIColor)
 }
@@ -16,7 +15,6 @@ final class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

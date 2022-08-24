@@ -16,11 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="DS9-Qp-xZV"/>
-                        <color key="backgroundColor" red="0.71008544149999997" green="0.54380207670000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="kxO-eB-pna">
                         <barButtonItem key="backBarButtonItem" title="StartViewController" id="tEc-OP-b2W"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="BJH-Tz-58p">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="5Hy-lR-UV9"/>
                             </connections>
@@ -123,17 +124,17 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eyi-OU-TR3">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oq4-Dh-5az">
                                                 <rect key="frame" x="0.0" y="41" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-JC-C7a">
                                                 <rect key="frame" x="0.0" y="82" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -157,6 +158,11 @@
                                     <action selector="returnDonePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="r10-j9-zl9"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YV6-Oq-gzi">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -176,16 +182,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="82A-XM-w9l"/>
                     <connections>
-                        <outlet property="BlueValueTF" destination="OWb-JC-C7a" id="2vy-i4-N5f"/>
+                        <outlet property="blueColorTF" destination="OWb-JC-C7a" id="B2y-yG-7O2"/>
                         <outlet property="blueLabel" destination="Hz5-hx-WiU" id="9Ac-40-TbJ"/>
                         <outlet property="blueSlider" destination="7LU-5X-Prw" id="k6X-Xy-SGT"/>
+                        <outlet property="greenColorTF" destination="Oq4-Dh-5az" id="Dqn-vQ-eny"/>
                         <outlet property="greenLabel" destination="2Mq-tD-JqN" id="Swg-a7-zsf"/>
                         <outlet property="greenSlider" destination="EgI-QB-uXJ" id="34D-HO-Mxi"/>
-                        <outlet property="greenValueTF" destination="Oq4-Dh-5az" id="vNw-jQ-3Ml"/>
                         <outlet property="mixColorTextView" destination="CyY-ee-dNf" id="EKc-5H-KOl"/>
+                        <outlet property="redColorTF" destination="Eyi-OU-TR3" id="xbS-NY-T4t"/>
                         <outlet property="redLabel" destination="evw-Vn-vhu" id="ln9-hZ-c6v"/>
                         <outlet property="redSlider" destination="439-WC-f3R" id="xUx-r8-zGL"/>
-                        <outlet property="redValueTF" destination="Eyi-OU-TR3" id="Z3O-f7-0KM"/>
+                        <outlet property="toolBar" destination="YV6-Oq-gzi" id="AwP-0Z-ODd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -195,7 +202,6 @@
         <!--Navigation Controller-->
         <scene sceneID="BC5-fQ-2yP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pFX-ez-Wqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Tj-od-61s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Cj-rQ-JvY">
@@ -207,6 +213,7 @@
                         <segue destination="XbN-iK-ScV" kind="relationship" relationship="rootViewController" id="5sF-Z4-Ds8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFX-ez-Wqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1679.2" y="-280.20989505247377"/>
         </scene>

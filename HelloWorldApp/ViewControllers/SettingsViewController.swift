@@ -19,40 +19,59 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+
+    @IBOutlet var redColorTF: UITextField!
+    @IBOutlet var greenColorTF: UITextField!
+    @IBOutlet var blueColorTF: UITextField!
     
-    @IBOutlet var redValueTF: UITextField!
-    @IBOutlet var greenValueTF: UITextField!
-    @IBOutlet var BlueValueTF: UITextField!
+    @IBOutlet var toolBar: UIToolbar!
     
     var color: UIColor!
     var delegate: SettingsViewControllerDelegate!
     
+    //MARK: Override function
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //MARK: IBActions
     @IBAction func actionRedSlider() {
         setupValueLabel(for: redLabel, and: redSlider)
+        redColorTF.text = redLabel.text
         mixColor()
     }
     @IBAction func actionGreenSlider() {
         setupValueLabel(for: greenLabel, and: greenSlider)
+        greenColorTF.text = greenLabel.text
         mixColor()
     }
     @IBAction func actionBlueSlider() {
         setupValueLabel(for: blueLabel, and: blueSlider)
+        blueColorTF.text = blueLabel.text
         mixColor()
     }
     
     @IBAction func returnDonePressed() {
-        delegate.setupBackground(for: mixColorTextView.backgroundColor ?? .white)
-       
-        dismiss(animated: true)
-    }
+        
+//        for textField in [redColorTF, greenColorTF, blueColorTF] {
+//            guard let newValue = textField?.text else { return }
+//            guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
+//                getAlert(for: textField ?? redColorTF)
+//                return
+//            }
+//        }
+
+    delegate.setupBackground(for: mixColorTextView.backgroundColor ?? .white)
+    dismiss(animated: true)
+}
+    
+
     
     // MARK: Private methods
 
@@ -75,7 +94,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func setupValueLabel(for label: UILabel, and slider: UISlider) {
-    label.text = "\(round(slider.value * 100)/100)"
+        label.text = String(format: "%.2f", slider.value)
     }
     
     private func setupUI() {
@@ -86,5 +105,71 @@ final class SettingsViewController: UIViewController {
         
         mixColorTextView.layer.cornerRadius = 10
         mixColorTextView.backgroundColor = color
+        
+        for colorTF in [redColorTF, greenColorTF, blueColorTF] {
+            colorTF?.delegate = self
+            
+        doButtonForToolBar()
+        }
+    }
+       
+    private func doButtonForToolBar() {
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTappedDone))
+
+        toolBar.items = [flexibleSpace, doneButton]
+        toolBar.sizeToFit()
+
+        for colorTF in [redColorTF, greenColorTF, blueColorTF] {
+            colorTF?.inputAccessoryView = toolBar
+        }
+    }
+
+    @objc private func didTappedDone() {
+        for colorTF in [redColorTF, greenColorTF, blueColorTF] {
+            colorTF?.resignFirstResponder()
+        }
+    }
+    
+    private func getAlert(for textField: UITextField) {
+        
+        let alert = UIAlertController(title: "Wrong format",
+                                      message: "Please enter correct value",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        textField.text = ""
+    }
+    
+    private func getGuard(for textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
+            getAlert(for: textField)
+            return
+        }
+    }
+}
+
+extension SettingsViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
+            getAlert(for: textField)
+            return
+        }
+        
+        switch textField {
+        case redColorTF:
+            redLabel.text = newValue
+            redSlider.value = numberValue
+        case greenColorTF:
+            greenLabel.text = newValue
+            greenSlider.value = numberValue
+        default:
+            blueLabel.text = newValue
+            blueSlider.value = numberValue
+        }
     }
 }
