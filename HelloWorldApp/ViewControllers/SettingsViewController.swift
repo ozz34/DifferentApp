@@ -24,8 +24,6 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenColorTF: UITextField!
     @IBOutlet var blueColorTF: UITextField!
     
-    @IBOutlet var toolBar: UIToolbar!
-    
     var color: UIColor!
     var delegate: SettingsViewControllerDelegate!
     
@@ -59,20 +57,19 @@ final class SettingsViewController: UIViewController {
     
     @IBAction func returnDonePressed() {
         
-//        for textField in [redColorTF, greenColorTF, blueColorTF] {
-//            guard let newValue = textField?.text else { return }
-//            guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
-//                getAlert(for: textField ?? redColorTF)
-//                return
-//            }
-//        }
+        for textField in [redColorTF, greenColorTF, blueColorTF] {
+            guard let newValue = textField?.text else { return }
+            guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
+                getAlert(for: textField ?? redColorTF,
+                         and: "Please in fill all the fields or enter correct value")
+                return
+            }
+        }
 
     delegate.setupBackground(for: mixColorTextView.backgroundColor ?? .white)
     dismiss(animated: true)
 }
-    
 
-    
     // MARK: Private methods
 
     private func mixColor() {
@@ -114,12 +111,20 @@ final class SettingsViewController: UIViewController {
     }
        
     private func doButtonForToolBar() {
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTappedDone))
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(didTappedDone))
 
         toolBar.items = [flexibleSpace, doneButton]
-        toolBar.sizeToFit()
-
+    
         for colorTF in [redColorTF, greenColorTF, blueColorTF] {
             colorTF?.inputAccessoryView = toolBar
         }
@@ -131,23 +136,15 @@ final class SettingsViewController: UIViewController {
         }
     }
     
-    private func getAlert(for textField: UITextField) {
+    private func getAlert(for textField: UITextField, and message: String) {
         
         let alert = UIAlertController(title: "Wrong format",
-                                      message: "Please enter correct value",
+                                      message: message,
                                       preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
         textField.text = ""
-    }
-    
-    private func getGuard(for textField: UITextField) {
-        guard let newValue = textField.text else { return }
-        guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
-            getAlert(for: textField)
-            return
-        }
     }
 }
 
@@ -156,7 +153,7 @@ extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
         guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
-            getAlert(for: textField)
+            getAlert(for: textField, and: "Please enter correct value")
             return
         }
         
@@ -164,12 +161,15 @@ extension SettingsViewController: UITextFieldDelegate {
         case redColorTF:
             redLabel.text = newValue
             redSlider.value = numberValue
+            mixColor()
         case greenColorTF:
             greenLabel.text = newValue
             greenSlider.value = numberValue
+            mixColor()
         default:
             blueLabel.text = newValue
             blueSlider.value = numberValue
+            mixColor()
         }
     }
 }

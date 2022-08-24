@@ -158,11 +158,6 @@
                                     <action selector="returnDonePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="r10-j9-zl9"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YV6-Oq-gzi">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items/>
-                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -192,7 +187,6 @@
                         <outlet property="redColorTF" destination="Eyi-OU-TR3" id="xbS-NY-T4t"/>
                         <outlet property="redLabel" destination="evw-Vn-vhu" id="ln9-hZ-c6v"/>
                         <outlet property="redSlider" destination="439-WC-f3R" id="xUx-r8-zGL"/>
-                        <outlet property="toolBar" destination="YV6-Oq-gzi" id="AwP-0Z-ODd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
