@@ -17,13 +17,13 @@ final class StartViewController: UIViewController {
         guard let settingsVC = segue.destination as? SettingsViewController
         else { return }
         
-        settingsVC.color = self.view.backgroundColor
+        settingsVC.color = view.backgroundColor
         settingsVC.delegate = self
     }
 }
 
 extension StartViewController: SettingsViewControllerDelegate {
     func setupBackground(for color: UIColor) {
-        self.view.backgroundColor = color
+        view.backgroundColor = color
     }
 }
