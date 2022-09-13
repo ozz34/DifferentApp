@@ -10,21 +10,41 @@ struct Person {
     let surname: String
     let phone: String
     let eMAil: String
+    
+    var fullName: String {
+        "\(name) \(surname)"
+    }
 }
 
 extension Person {
     static func getPersonList() -> [Person] {
-        let dataManager = DataManager()
-        var person = [Person]()
+        let dataManager = DataManager.shared
+        var persons = [Person]()
         
-        for _ in 0 ..< dataManager.names.count {
-            person.append(Person.init(name: dataManager.names.shuffled().randomElement() ?? "",
-                                      surname: dataManager.surnames.shuffled().randomElement() ?? "",
-                                      phone: dataManager.phones.shuffled().randomElement() ?? "",
-                                      eMAil: dataManager.eMailes.shuffled().randomElement() ?? ""))
+        let names = dataManager.names.shuffled()
+        let surnames = dataManager.surnames.shuffled()
+        let phones = dataManager.phones.shuffled()
+        let eMailes = dataManager.eMailes.shuffled()
+        
+        
+        let iterationCount = min(
+            names.count,
+            surnames.count,
+            phones.count,
+            eMailes.count
+        )
+        
+        for index in 0 ..< iterationCount {
+            persons.append(Person(name: names[index],
+                                  surname: surnames [index],
+                                  phone: phones[index],
+                                  eMAil: eMailes[index]
+                                 )
+            )
         }
-        return person
+        return persons
     }
 }
+
 
 
