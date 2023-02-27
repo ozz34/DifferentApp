@@ -7,12 +7,11 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate {
+protocol SettingsViewControllerDelegate: AnyObject {
     func setupBackground(for color: UIColor)
 }
 
 final class StartViewController: UIViewController {
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController
         else { return }

@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
 
-    //MARK: IBOutlets
+    // MARK: - Properties
     @IBOutlet var mixColorTextView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -27,10 +27,9 @@ final class SettingsViewController: UIViewController {
     var color: UIColor!
     var delegate: SettingsViewControllerDelegate!
     
-    //MARK: Override function
+    // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
@@ -38,17 +37,19 @@ final class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
-    //MARK: IBActions
+    // MARK: - Helpers
     @IBAction func actionRedSlider() {
         setupValueLabel(for: redLabel, and: redSlider)
         redColorTF.text = redLabel.text
         mixColor()
     }
+    
     @IBAction func actionGreenSlider() {
         setupValueLabel(for: greenLabel, and: greenSlider)
         greenColorTF.text = greenLabel.text
         mixColor()
     }
+    
     @IBAction func actionBlueSlider() {
         setupValueLabel(for: blueLabel, and: blueSlider)
         blueColorTF.text = blueLabel.text
@@ -56,7 +57,6 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction func returnDonePressed() {
-        
         for textField in [redColorTF, greenColorTF, blueColorTF] {
             guard let newValue = textField?.text else { return }
             guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
@@ -69,16 +69,13 @@ final class SettingsViewController: UIViewController {
     delegate.setupBackground(for: mixColorTextView.backgroundColor ?? .white)
     dismiss(animated: true)
 }
-
-    // MARK: Private methods
-
+    
     private func mixColor() {
         mixColorTextView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
                                                    green: CGFloat(greenSlider.value),
                                                    blue: CGFloat(blueSlider.value),
                                                    alpha: 1)
     }
-    
     private func setupSlider(for slider: UISlider,
                              and color: UIColor,
                              also label: UILabel ) {
@@ -107,7 +104,6 @@ final class SettingsViewController: UIViewController {
     }
     
     private func setupUI() {
-        
         setupSlider(for: redSlider, and: .red, also: redLabel)
         setupSlider(for: greenSlider, and: .green, also: greenLabel)
         setupSlider(for: blueSlider, and: .blue, also: blueLabel)
@@ -121,16 +117,12 @@ final class SettingsViewController: UIViewController {
             redColorTF.placeholder = redLabel.text
             greenColorTF.placeholder = greenLabel.text
             blueColorTF.placeholder = blueLabel.text
-            
-      //  doButtonForToolBar()
+            //doButtonForToolBar()
         }
     }
-       
     
-    // можно в отдельном методе или как сделано сейчас в расширении
-    
+// Настройка ToolBar в отдельном методе(реализовано в расширении)
 //    private func doButtonForToolBar() {
-//
 //        let toolBar = UIToolbar()
 //        toolBar.sizeToFit()
 //
@@ -148,17 +140,15 @@ final class SettingsViewController: UIViewController {
 //            colorTF?.inputAccessoryView = toolBar
 //        }
 //    }
-
+    
     @objc private func didTappedDone() {
         view.endEditing(true)
-//        for colorTF in [redColorTF, greenColorTF, blueColorTF] {
-//            colorTF?.resignFirstResponder()
-
-        }
-    
+        //        Или
+        //        for colorTF in [redColorTF, greenColorTF, blueColorTF] {
+        //            colorTF?.resignFirstResponder()
+    }
     
     private func getAlert(for textField: UITextField, and message: String) {
-        
         let alert = UIAlertController(title: "Wrong format",
                                       message: message,
                                       preferredStyle: .alert)
@@ -169,8 +159,8 @@ final class SettingsViewController: UIViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension SettingsViewController: UITextFieldDelegate {
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
         guard let numberValue = Float(newValue), 0...1 ~= numberValue else {
@@ -191,11 +181,10 @@ extension SettingsViewController: UITextFieldDelegate {
         }
         mixColor()
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                             target: nil,
                                             action: nil)
@@ -203,9 +192,7 @@ extension SettingsViewController: UITextFieldDelegate {
                                          style: .done,
                                          target: self,
                                          action: #selector(didTappedDone))
-
         toolBar.items = [flexibleSpace, doneButton]
         textField.inputAccessoryView = toolBar
-        }
+    }
 }
-
