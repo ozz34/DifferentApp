@@ -8,16 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    
+    // MARK: - Properties
     @IBOutlet var redTrafficView: UIView!
     @IBOutlet var yellowTrafficView: UIView!
     @IBOutlet var greenTrafficView: UIView!
-    
     @IBOutlet var controlColorButton: UIButton!
-    
+
     private var countPressButton = 0
-    
+    // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +33,7 @@ class ViewController: UIViewController {
         
        controlColorButton.configuration = setupButton(with: "START")
     }
-
-    
+    // MARK: - Helpers
     @IBAction func switchColorButton() {
         controlColorButton.configuration = setupButton(with: "NEXT")
         
@@ -57,15 +54,13 @@ class ViewController: UIViewController {
     }
     
     private func setupButton(with title: String) -> UIButton.Configuration {
-        
         var buttonConfiguration = UIButton.Configuration.filled()
         buttonConfiguration.baseBackgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         buttonConfiguration.cornerStyle = .medium
         buttonConfiguration.title = title
         buttonConfiguration.buttonSize = .medium
         buttonConfiguration.attributedTitle?.font = .systemFont(ofSize: 25)
-        
+    
         return buttonConfiguration
     }
 }
-
