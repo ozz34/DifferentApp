@@ -11,7 +11,7 @@ class InfoViewController: UIViewController {
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var picture: UIImageView! 
+    @IBOutlet var picture: UIImageView!
     
     var user: User!
     
@@ -22,6 +22,4 @@ class InfoViewController: UIViewController {
         descriptionLabel.text = user.person.definition
         picture.image = UIImage(named: user.person.picture)
     }
-    
 }
-

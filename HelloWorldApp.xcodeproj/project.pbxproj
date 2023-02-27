@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		870581A429ACE63D00B34033 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				871C3FEA28AA5DFE00080E3B /* GradientView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		87ECBCCA28ABBE240082B7C1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +66,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		87ECBCCB28ABBE810082B7C1 /* SupportFiles */ = {
+		87ECBCCB28ABBE810082B7C1 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				87F18889288F0BB100F06180 /* AppDelegate.swift */,
 				87F1888B288F0BB100F06180 /* SceneDelegate.swift */,
+				87F18897288F0BB200F06180 /* Info.plist */,
 			);
-			path = SupportFiles;
+			path = App;
 			sourceTree = "<group>";
 		};
 		87ECBCCC28ABBE9B0082B7C1 /* Models */ = {
@@ -105,11 +114,10 @@
 			children = (
 				87ECBCCC28ABBE9B0082B7C1 /* Models */,
 				87ECBCCA28ABBE240082B7C1 /* ViewControllers */,
-				87ECBCCB28ABBE810082B7C1 /* SupportFiles */,
+				87ECBCCB28ABBE810082B7C1 /* App */,
 				87ECBCCD28ABBEAB0082B7C1 /* Storyboards */,
-				871C3FEA28AA5DFE00080E3B /* GradientView.swift */,
+				870581A429ACE63D00B34033 /* Utilities */,
 				87F76B9228AE851F00DFFFFF /* Assets.xcassets */,
-				87F18897288F0BB200F06180 /* Info.plist */,
 			);
 			path = HelloWorldApp;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 				87F18882288F0BB100F06180 /* Sources */,
 				87F18883288F0BB100F06180 /* Frameworks */,
 				87F18884288F0BB100F06180 /* Resources */,
+				870581A329ACE5ED00B34033 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -179,6 +188,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		870581A329ACE5ED00B34033 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87F18882288F0BB100F06180 /* Sources */ = {
@@ -341,7 +370,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5QF774VV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HelloWorldApp/Info.plist;
+				INFOPLIST_FILE = HelloWorldApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -369,7 +398,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5QF774VV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HelloWorldApp/Info.plist;
+				INFOPLIST_FILE = HelloWorldApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

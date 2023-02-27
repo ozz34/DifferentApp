@@ -5,17 +5,15 @@
 //  Created by Иван Худяков on 15.08.2022.
 //
 
-import Foundation
 import UIKit
 
 class GradientView: UIView {
-    
+    // MARK: - Private properties
     @IBInspectable private var startColor: UIColor? {
         didSet {
             setupGradientColors()
         }
     }
-    
     @IBInspectable private var endColor: UIColor? {
         didSet {
             setupGradientColors()
@@ -24,6 +22,7 @@ class GradientView: UIView {
     
     private let gradientLayer = CAGradientLayer()
     
+    // MARK: - Lyfecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -32,13 +31,13 @@ class GradientView: UIView {
         super.init(coder: coder)
         setupGradient()
     }
-    
+    // MARK: - Override functions
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer.frame = bounds
         
     }
-    
+    // MARK: - Private functions
     private func setupGradient() {
         self.layer.addSublayer(gradientLayer)
         setupGradientColors()
@@ -50,4 +49,3 @@ class GradientView: UIView {
         }
     }
 }
-

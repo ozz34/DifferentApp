@@ -8,7 +8,6 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
     var user: User!
     
     override func viewDidLoad() {
@@ -20,4 +19,3 @@ class SecondViewController: UIViewController {
                 infoVC.user = user
     }
 }
-

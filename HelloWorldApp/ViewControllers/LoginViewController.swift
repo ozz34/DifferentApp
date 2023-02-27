@@ -8,28 +8,24 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-    
-    //MARK: Outlets
+    // MARK: - Properties
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
-    
-    //MARK: Private properties
+
+    // MARK: - Private properties
     private let user = User.getUser()
     
-    //MARK: Override function
+    // MARK: - Override functions
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
         view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let tabBar = segue.destination as? UITabBarController else { return }
         guard let viewControllers = tabBar.viewControllers else { return }
         
         for viewController in viewControllers {
-            
             if let welcomeVC = viewController as? WelcomeViewController {
                 welcomeVC.user = user
             } else if let navigationVC = viewController as? UINavigationController {
@@ -39,23 +35,23 @@ final class LoginViewController: UIViewController {
         }
     }
 
-    //MARK: @IBActions
+    // MARK: - @IBActions
     @IBAction func logInButtonPressed() {
         guard userNameTF.text != user.login || passwordTF.text != user.password
         else { return }
         
         doAlert(title: "Invalid login or password",
                 message: "Please, enter correct login and password")
-        
         passwordTF.text = ""
     }
     
     @IBAction func forgotNameButtonPressed() {
-        doAlert(title: "Oops!",message: "Your name is \(user.login)😉")
+        doAlert(title: "Oops!",
+                message: "Your name is \(user.login) 😉")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
-        doAlert(title: "Oops!",message: "Your Password \(user.password)")
+        doAlert(title: "Oops!",message: "Your Password \(user.password) 😉")
     }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
@@ -63,7 +59,7 @@ final class LoginViewController: UIViewController {
         userNameTF.text = ""
     }
     
-    //MARK: Private function
+    // MARK: - Private function
     private func doAlert(title: String, message: String) {
         let alert = UIAlertController(title: title,
                                       message: message,
@@ -73,4 +69,3 @@ final class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-
