@@ -8,14 +8,14 @@
 import UIKit
 
 final class InfoOnePersonViewController: UIViewController {
-    
-    //MARK: Outlets
+    // MARK: - Properties
     @IBOutlet var fullNameLabel: UILabel!
     @IBOutlet var phoneLabel: UILabel!
     @IBOutlet var eMailLabel: UILabel!
     
     var person: Person!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +24,3 @@ final class InfoOnePersonViewController: UIViewController {
         eMailLabel.text = person.eMAil
     }
 }
-    
-
-    
-

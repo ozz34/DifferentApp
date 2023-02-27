@@ -26,25 +26,18 @@ extension Person {
         let phones = dataManager.phones.shuffled()
         let eMailes = dataManager.eMailes.shuffled()
         
-        
         let iterationCount = min(
             names.count,
             surnames.count,
             phones.count,
-            eMailes.count
-        )
+            eMailes.count)
         
         for index in 0 ..< iterationCount {
             persons.append(Person(name: names[index],
                                   surname: surnames [index],
                                   phone: phones[index],
-                                  eMAil: eMailes[index]
-                                 )
-            )
+                                  eMAil: eMailes[index]))
         }
         return persons
     }
 }
-
-
-

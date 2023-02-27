@@ -8,10 +8,10 @@
 import UIKit
 
 final class FullInformationViewController: UITableViewController {
-    
+    // MARK: - Properties
     var persons: [Person]!
 
-    //MARK: Overrides methods
+    //MARK: - Overrides methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         persons.count
     }
@@ -38,7 +38,6 @@ final class FullInformationViewController: UITableViewController {
             content.image = UIImage(systemName: "tray")
         }
         cell.contentConfiguration = content
-        
         return cell
     }
     

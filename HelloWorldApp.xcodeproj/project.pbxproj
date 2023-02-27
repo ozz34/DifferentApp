@@ -63,13 +63,14 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
-		87ECB50128BF8C3400036998 /* Delegate */ = {
+		87ECB50128BF8C3400036998 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				87F18889288F0BB100F06180 /* AppDelegate.swift */,
 				87F1888B288F0BB100F06180 /* SceneDelegate.swift */,
+				87F18897288F0BB200F06180 /* Info.plist */,
 			);
-			path = Delegate;
+			path = App;
 			sourceTree = "<group>";
 		};
 		87ECB50228BF8C4000036998 /* Storyboards */ = {
@@ -119,13 +120,12 @@
 		87F18888288F0BB100F06180 /* HelloWorldApp */ = {
 			isa = PBXGroup;
 			children = (
-				87ECB50128BF8C3400036998 /* Delegate */,
-				87ECB50228BF8C4000036998 /* Storyboards */,
-				87ECB50328BF8C4E00036998 /* ViewControllers */,
 				87ECB50428BF8C5E00036998 /* Models */,
+				87ECB50328BF8C4E00036998 /* ViewControllers */,
+				87ECB50228BF8C4000036998 /* Storyboards */,
 				87800BA328D0E826001E4F98 /* Services */,
 				87800BA828D106C8001E4F98 /* Resourses */,
-				87F18897288F0BB200F06180 /* Info.plist */,
+				87ECB50128BF8C3400036998 /* App */,
 			);
 			path = HelloWorldApp;
 			sourceTree = "<group>";
@@ -140,6 +140,7 @@
 				87F18882288F0BB100F06180 /* Sources */,
 				87F18883288F0BB100F06180 /* Frameworks */,
 				87F18884288F0BB100F06180 /* Resources */,
+				870581A529ACEBA200B34033 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -195,6 +196,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		870581A529ACEBA200B34033 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87F18882288F0BB100F06180 /* Sources */ = {
@@ -357,7 +378,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5QF774VV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HelloWorldApp/Info.plist;
+				INFOPLIST_FILE = HelloWorldApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -387,7 +408,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5QF774VV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HelloWorldApp/Info.plist;
+				INFOPLIST_FILE = HelloWorldApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

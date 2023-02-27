@@ -8,10 +8,9 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-    
+    //MARK: - Overrides methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViewControllers()
     }
     
